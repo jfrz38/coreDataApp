@@ -12,9 +12,9 @@
 		2908B05F21AC47E300C5C4A6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2908B05D21AC47E300C5C4A6 /* Main.storyboard */; };
 		2908B06221AC47E300C5C4A6 /* coreDataApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2908B06021AC47E300C5C4A6 /* coreDataApp.xcdatamodeld */; };
 		2908B06421AC47E300C5C4A6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2908B06321AC47E300C5C4A6 /* Assets.xcassets */; };
-		2908B06721AC47E300C5C4A6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2908B06521AC47E300C5C4A6 /* LaunchScreen.storyboard */; };
 		2908B07221AC47E300C5C4A6 /* coreDataAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2908B07121AC47E300C5C4A6 /* coreDataAppTests.swift */; };
-		2908B07D21AC599F00C5C4A6 /* deleteTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2908B07C21AC599F00C5C4A6 /* deleteTableViewController.swift */; };
+		2908B07D21AC599F00C5C4A6 /* jugadoresTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2908B07C21AC599F00C5C4A6 /* jugadoresTableViewController.swift */; };
+		2908B07F21AC6A0200C5C4A6 /* teams.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2908B07E21AC6A0200C5C4A6 /* teams.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,12 +34,12 @@
 		2908B05E21AC47E300C5C4A6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2908B06121AC47E300C5C4A6 /* coreDataApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = coreDataApp.xcdatamodel; sourceTree = "<group>"; };
 		2908B06321AC47E300C5C4A6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		2908B06621AC47E300C5C4A6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2908B06821AC47E300C5C4A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2908B06D21AC47E300C5C4A6 /* coreDataAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = coreDataAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2908B07121AC47E300C5C4A6 /* coreDataAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = coreDataAppTests.swift; sourceTree = "<group>"; };
 		2908B07321AC47E300C5C4A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2908B07C21AC599F00C5C4A6 /* deleteTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = deleteTableViewController.swift; sourceTree = "<group>"; };
+		2908B07C21AC599F00C5C4A6 /* jugadoresTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = jugadoresTableViewController.swift; sourceTree = "<group>"; };
+		2908B07E21AC6A0200C5C4A6 /* teams.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = teams.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,10 +83,10 @@
 			children = (
 				2908B05921AC47E300C5C4A6 /* AppDelegate.swift */,
 				2908B05B21AC47E300C5C4A6 /* tableViewController.swift */,
-				2908B07C21AC599F00C5C4A6 /* deleteTableViewController.swift */,
+				2908B07E21AC6A0200C5C4A6 /* teams.swift */,
+				2908B07C21AC599F00C5C4A6 /* jugadoresTableViewController.swift */,
 				2908B05D21AC47E300C5C4A6 /* Main.storyboard */,
 				2908B06321AC47E300C5C4A6 /* Assets.xcassets */,
-				2908B06521AC47E300C5C4A6 /* LaunchScreen.storyboard */,
 				2908B06821AC47E300C5C4A6 /* Info.plist */,
 				2908B06021AC47E300C5C4A6 /* coreDataApp.xcdatamodeld */,
 			);
@@ -183,7 +183,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2908B06721AC47E300C5C4A6 /* LaunchScreen.storyboard in Resources */,
 				2908B06421AC47E300C5C4A6 /* Assets.xcassets in Resources */,
 				2908B05F21AC47E300C5C4A6 /* Main.storyboard in Resources */,
 			);
@@ -203,7 +202,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2908B07D21AC599F00C5C4A6 /* deleteTableViewController.swift in Sources */,
+				2908B07F21AC6A0200C5C4A6 /* teams.swift in Sources */,
+				2908B07D21AC599F00C5C4A6 /* jugadoresTableViewController.swift in Sources */,
 				2908B06221AC47E300C5C4A6 /* coreDataApp.xcdatamodeld in Sources */,
 				2908B05C21AC47E300C5C4A6 /* tableViewController.swift in Sources */,
 				2908B05A21AC47E300C5C4A6 /* AppDelegate.swift in Sources */,
@@ -235,14 +235,6 @@
 				2908B05E21AC47E300C5C4A6 /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		2908B06521AC47E300C5C4A6 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				2908B06621AC47E300C5C4A6 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

@@ -11,7 +11,7 @@ import CoreData
 
 class tableViewController: UITableViewController {
 
-    var listItems = [NSManagedObject]() //Lista de items a tener
+    var listTeams = [NSManagedObject]() //Lista de equipos a tener
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,7 +21,7 @@ class tableViewController: UITableViewController {
     }
     
     func addItem(){
-        let alertController = UIAlertController(title: "Escribe algo", message: "Título", preferredStyle: .Alert)
+        let alertController = UIAlertController(title: "Añadir equipo", message: "Equipo", preferredStyle: .Alert)
         
         let confirmAction = UIAlertAction(title: "Confirmar", style: UIAlertActionStyle.Default, handler: ({
             (_) in
@@ -38,7 +38,7 @@ class tableViewController: UITableViewController {
         alertController.addTextFieldWithConfigurationHandler({
             (textField) in
             
-            textField.placeholder = "Texto"
+            textField.placeholder = "Nombre equipo"
         })
         
         alertController.addAction(confirmAction)
@@ -48,22 +48,39 @@ class tableViewController: UITableViewController {
     }
     
     func saveItem(itemToSave : String){
+        
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         
         let managedContext = appDelegate.managedObjectContext
         
-        let entity = NSEntityDescription.entityForName("ListEntity", inManagedObjectContext: managedContext)
+        let entity = NSEntityDescription.entityForName("ListTeams", inManagedObjectContext: managedContext)
         
         let item = NSManagedObject(entity: entity!, insertIntoManagedObjectContext: managedContext)
+        /*
+        let emptyTeamPlayers = [String]()
+        let team = teams(teamName: itemToSave,teamPlayers: emptyTeamPlayers)
         
-        item.setValue(itemToSave, forKey: "item")
+        item.setValue(team, forKey: "team")
         
         do{
           
             try managedContext.save()
             
-            listItems.append(item)
+            listTeams.append(item)
         
+        }
+        catch{
+            
+            print("error")
+        }*/
+        item.setValue(itemToSave, forKey: "item")
+        
+        do{
+            
+            try managedContext.save()
+            
+            listTeams.append(item)
+            
         }
         catch{
             
@@ -79,11 +96,11 @@ class tableViewController: UITableViewController {
         
         let managedContext = appDelegate.managedObjectContext
 
-        let fetchRequest = NSFetchRequest(entityName: "ListEntity")
+        let fetchRequest = NSFetchRequest(entityName: "ListTeams")
         
         do{
             let results = try managedContext.executeFetchRequest(fetchRequest)
-            listItems = results as! [NSManagedObject]
+            listTeams = results as! [NSManagedObject]
             
         }
         catch{
@@ -92,7 +109,7 @@ class tableViewController: UITableViewController {
         
     }
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    /*override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         
@@ -100,10 +117,11 @@ class tableViewController: UITableViewController {
         
         tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Right)  //Añadir animación al hacer click
         
-        managedContext.deleteObject(listItems[indexPath.row]) //Eliminar el objeto de la fila indicada visaulmente
+        managedContext.deleteObject(listTeams[indexPath.row]) //Eliminar el objeto de la fila indicada visaulmente
         listItems.removeAtIndex(indexPath.row)  //Eliminar el valor del objeto listItems
         self.tableView.reloadData()
-    }
+ 
+    }*/
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -113,16 +131,16 @@ class tableViewController: UITableViewController {
     //añadir tableViews
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return listItems.count
+        return listTeams.count
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell")! as UITableViewCell
         
-        let item = listItems[indexPath.row] //Valor del item correspondiente a cada celda
+        let item = listTeams[indexPath.row] //Valor del item correspondiente a cada celda
         
-        cell.textLabel?.text = item.valueForKey("item") as! String //Label de la celda será el texto de item de CoreData ; as! para obligar a que sea String
+        cell.textLabel?.text = item.valueForKey("team") as! String //Label de la celda será el texto de item de CoreData ; as! para obligar a que sea String
         
         return cell
     }

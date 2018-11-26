@@ -5,7 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
-        <!--Lista Añadir-->
+        <!--Lista Equipos-->
         <scene sceneID="iSf-Zb-feu">
             <objects>
                 <tableViewController id="tB9-4f-Wba" customClass="tableViewController" customModule="coreDataApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -21,6 +21,9 @@
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="TxJ-dF-SYK" kind="show" id="Pql-3h-fCj"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -28,7 +31,9 @@
                             <outlet property="delegate" destination="tB9-4f-Wba" id="DxQ-QP-VHF"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Lista Añadir" id="5UV-PG-hQt"/>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Lista Equipos" id="5UV-PG-hQt"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OpQ-vZ-8ky" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -49,6 +54,52 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YK0-sG-z2V" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="119" y="822"/>
+        </scene>
+        <!--Lista jugadores-->
+        <scene sceneID="Nae-Kg-15L">
+            <objects>
+                <tableViewController id="HLF-v8-lUi" customClass="jugadoresTableViewController" customModule="coreDataApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="4sE-hU-APt">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="f2O-PJ-dHO">
+                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="f2O-PJ-dHO" id="kNj-L0-ZjU">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="HLF-v8-lUi" id="9t7-gy-Rtz"/>
+                            <outlet property="delegate" destination="HLF-v8-lUi" id="zNm-fs-YQo"/>
+                        </connections>
+                    </tableView>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Lista jugadores" id="GXb-Cz-13t"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ufi-uT-Qlm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="939" y="1575"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="hlh-hs-L8n">
+            <objects>
+                <navigationController id="TxJ-dF-SYK" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="HjT-BE-5II">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="HLF-v8-lUi" kind="relationship" relationship="rootViewController" id="8sG-at-XqB"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tPQ-ER-2GK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="119" y="1575"/>
         </scene>
     </scenes>
 </document>
