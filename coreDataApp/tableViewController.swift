@@ -147,12 +147,12 @@ class tableViewController: UITableViewController {
         if segue.identifier != "mostrarJugadores" {return}
         
         let celdaRef = sender as! UITableViewCell
-        let destinoVC = segue.destinationViewController as! jugadoresTableViewController
+        let destinoVC = segue.destinationViewController as! UINavigationController
+        let childSourceVC = destinoVC.topViewController as! jugadoresTableViewController
         
         let filaSeleccionada = tableView.indexPathForCell(celdaRef)
-        destinoVC.team = listTeams[(filaSeleccionada)!.row]
+        childSourceVC.team = listTeams[(filaSeleccionada)!.row]
     }
-
 
 }
 

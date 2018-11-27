@@ -15,7 +15,7 @@ class jugadoresTableViewController: UITableViewController, UINavigationControlle
     var team: Team!
     
     override func viewDidLoad() {
-        super.viewDidLoad()        
+        super.viewDidLoad()
         
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Reply, target: self, action: #selector(jugadoresTableViewController.backTableTeam))
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Add, target: self, action: #selector(jugadoresTableViewController.addPlayer))
@@ -137,6 +137,10 @@ class jugadoresTableViewController: UITableViewController, UINavigationControlle
         return cell
         
     }
+    
+    /*override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return true;
+    }*/
 
     
 }
