@@ -14,7 +14,7 @@
 		2908B06421AC47E300C5C4A6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2908B06321AC47E300C5C4A6 /* Assets.xcassets */; };
 		2908B07221AC47E300C5C4A6 /* coreDataAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2908B07121AC47E300C5C4A6 /* coreDataAppTests.swift */; };
 		2908B07D21AC599F00C5C4A6 /* jugadoresTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2908B07C21AC599F00C5C4A6 /* jugadoresTableViewController.swift */; };
-		2908B07F21AC6A0200C5C4A6 /* teams.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2908B07E21AC6A0200C5C4A6 /* teams.swift */; };
+		2908B07F21AC6A0200C5C4A6 /* Teams.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2908B07E21AC6A0200C5C4A6 /* Teams.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,7 +39,7 @@
 		2908B07121AC47E300C5C4A6 /* coreDataAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = coreDataAppTests.swift; sourceTree = "<group>"; };
 		2908B07321AC47E300C5C4A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2908B07C21AC599F00C5C4A6 /* jugadoresTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = jugadoresTableViewController.swift; sourceTree = "<group>"; };
-		2908B07E21AC6A0200C5C4A6 /* teams.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = teams.swift; sourceTree = "<group>"; };
+		2908B07E21AC6A0200C5C4A6 /* Teams.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Teams.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,7 +83,7 @@
 			children = (
 				2908B05921AC47E300C5C4A6 /* AppDelegate.swift */,
 				2908B05B21AC47E300C5C4A6 /* tableViewController.swift */,
-				2908B07E21AC6A0200C5C4A6 /* teams.swift */,
+				2908B07E21AC6A0200C5C4A6 /* Teams.swift */,
 				2908B07C21AC599F00C5C4A6 /* jugadoresTableViewController.swift */,
 				2908B05D21AC47E300C5C4A6 /* Main.storyboard */,
 				2908B06321AC47E300C5C4A6 /* Assets.xcassets */,
@@ -202,7 +202,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2908B07F21AC6A0200C5C4A6 /* teams.swift in Sources */,
+				2908B07F21AC6A0200C5C4A6 /* Teams.swift in Sources */,
 				2908B07D21AC599F00C5C4A6 /* jugadoresTableViewController.swift in Sources */,
 				2908B06221AC47E300C5C4A6 /* coreDataApp.xcdatamodeld in Sources */,
 				2908B05C21AC47E300C5C4A6 /* tableViewController.swift in Sources */,
@@ -388,6 +388,7 @@
 				2908B07821AC47E300C5C4A6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2908B07921AC47E300C5C4A6 /* Build configuration list for PBXNativeTarget "coreDataAppTests" */ = {
 			isa = XCConfigurationList;
@@ -396,6 +397,7 @@
 				2908B07B21AC47E300C5C4A6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

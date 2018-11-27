@@ -11,7 +11,7 @@ import CoreData
 
 class tableViewController: UITableViewController {
 
-    var listTeams = [NSManagedObject]() //Lista de equipos a tener
+    var listTeams = [Teams]() //Lista de equipos a tener
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,30 +56,22 @@ class tableViewController: UITableViewController {
         let entity = NSEntityDescription.entityForName("ListTeams", inManagedObjectContext: managedContext)
         
         let item = NSManagedObject(entity: entity!, insertIntoManagedObjectContext: managedContext)
-        /*
-        let emptyTeamPlayers = [String]()
-        let team = teams(teamName: itemToSave,teamPlayers: emptyTeamPlayers)
         
+        /*let team = Teams(teamName: itemToSave, teamPlayers: [String]())
         item.setValue(team, forKey: "team")
+        */
         
-        do{
-          
-            try managedContext.save()
-            
-            listTeams.append(item)
+        let team = Teams(entity:entity!, insertIntoManagedObjectContext: managedContext)
+        team.teamName = itemToSave
+        team.teamPlayers = [String]()
         
-        }
-        catch{
-            
-            print("error")
-        }*/
-        item.setValue(itemToSave, forKey: "item")
         
         do{
             
             try managedContext.save()
             
-            listTeams.append(item)
+            listTeams.append(team)
+            print("Guardado equipo ",team.teamName)
             
         }
         catch{
@@ -100,7 +92,7 @@ class tableViewController: UITableViewController {
         
         do{
             let results = try managedContext.executeFetchRequest(fetchRequest)
-            listTeams = results as! [NSManagedObject]
+            listTeams = results as! [Teams]
             
         }
         catch{
@@ -136,13 +128,20 @@ class tableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell")! as UITableViewCell
         
-        let item = listTeams[indexPath.row] //Valor del item correspondiente a cada celda
+        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
         
-        cell.textLabel?.text = item.valueForKey("team") as! String //Label de la celda será el texto de item de CoreData ; as! para obligar a que sea String
+        
+        /*let item = listTeams[indexPath.row] //Valor del item correspondiente a cada celda
+         
+         let team = item.valueForKey("team") as! teams*/
+
+        
+        let team = listTeams[indexPath.row]
+        cell.textLabel?.text = team.teamName
         
         return cell
+
     }
 
 

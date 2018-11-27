@@ -7,7 +7,7 @@
         <attribute name="team" optional="YES" attributeType="Transformable" syncable="YES"/>
     </entity>
     <elements>
-        <element name="ListTeams" positionX="-63" positionY="-18" width="128" height="60"/>
         <element name="ListPlayers" positionX="-54" positionY="0" width="128" height="60"/>
+        <element name="ListTeams" positionX="-63" positionY="-18" width="128" height="60"/>
     </elements>
 </model>
