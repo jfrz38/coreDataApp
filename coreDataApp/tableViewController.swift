@@ -47,35 +47,28 @@ class tableViewController: UITableViewController {
         self.presentViewController(alertController, animated: true, completion: nil)
     }
     
-    func saveItem(itemToSave : String){
-        print("aa")
+    func saveItem(teamToSave : String){
+
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         
         let managedContext = appDelegate.managedObjectContext
-        print("bb")
+
         let entity = NSEntityDescription.entityForName("ListTeams", inManagedObjectContext: managedContext)
-        print("cc")
+
         //let team = NSEntityDescription.insertNewObjectForEntityForName("ListTeams", inManagedObjectContext: managedContext) as! Teams
-        print("xd")
+
         //let item = NSManagedObject(entity: entity!, insertIntoManagedObjectContext: managedContext)
-        print("dd")
+
         
         /*let team = Teams(teamName: itemToSave, teamPlayers: [String]())
         item.setValue(team, forKey: "team")*/
- 
-        print("ee")
+
         let team = coreDataApp.Team(entity:entity!, insertIntoManagedObjectContext: managedContext)
-        print("ff")
-        team.teamName = itemToSave
-        //team.setNombreTeam(itemToSave)
-        print("gg")
-        team.teamPlayers = [String]()
-        print("hh")
+        team.teamName = teamToSave
+        team.teamPlayers = [Player]()
         
         do{
-            print("ii")
             try managedContext.save()
-            print("jj")
             listTeams.append(team)
             print("Guardado equipo ",team.teamName)
             
@@ -148,6 +141,16 @@ class tableViewController: UITableViewController {
         
         return cell
 
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier != "mostrarJugadores" {return}
+        
+        let celdaRef = sender as! UITableViewCell
+        let destinoVC = segue.destinationViewController as! jugadoresTableViewController
+        
+        let filaSeleccionada = tableView.indexPathForCell(celdaRef)
+        destinoVC.team = listTeams[(filaSeleccionada)!.row]
     }
 
 

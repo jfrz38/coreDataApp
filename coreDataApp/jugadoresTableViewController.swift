@@ -9,19 +9,13 @@
 import UIKit
 import CoreData
 
-class jugadoresTableViewController: UITableViewController {
+class jugadoresTableViewController: UITableViewController, UINavigationControllerDelegate {
 
-    var listPlayers = [NSManagedObject]() //Lista de jugadores en un equipo
+    var listPlayers = [Player]() //Lista de jugadores en un equipo
+    var team: Team!
     
     override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-        
+        super.viewDidLoad()        
         
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Reply, target: self, action: #selector(jugadoresTableViewController.backTableTeam))
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Add, target: self, action: #selector(jugadoresTableViewController.addPlayer))
@@ -36,11 +30,6 @@ class jugadoresTableViewController: UITableViewController {
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
-
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return 0
     }
     
@@ -80,28 +69,74 @@ class jugadoresTableViewController: UITableViewController {
     }
     
     func saveItem(itemToSave : String){
+        
+        
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         
         let managedContext = appDelegate.managedObjectContext
         
         let entity = NSEntityDescription.entityForName("ListPlayers", inManagedObjectContext: managedContext)
+
         
-        let item = NSManagedObject(entity: entity!, insertIntoManagedObjectContext: managedContext)
-        
-        item.setValue(itemToSave, forKey: "item")
+        let player = Player(entity:entity!, insertIntoManagedObjectContext: managedContext)
+        player.playerName = itemToSave
+        player.playerTeam = team.teamName
         
         do{
-            
             try managedContext.save()
-            
-            listPlayers.append(item)
+            listPlayers.append(player)
+            print("Guardado jugador ",player.playerName," en el equipo ",team.teamName)
             
         }
         catch{
             
             print("error")
         }
+
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        //Método para coger todos los datos del core data y mostrarlos en el table view
+        
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        
+        let managedContext = appDelegate.managedObjectContext
+        
+        let fetchRequest = NSFetchRequest(entityName: "ListPlayers")
+        
+        do{
+            let results = try managedContext.executeFetchRequest(fetchRequest)
+            listPlayers = results as! [Player]
+            
+        }
+        catch{
+            print("error")
+        }
+        
+    }
+    
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        return listPlayers.count
+    }
+    
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
+        
+        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
+        
+        
+        /*let item = listTeams[indexPath.row] //Valor del item correspondiente a cada celda
+         
+         let team = item.valueForKey("team") as! teams*/
+        
+        
+        let player = listPlayers[indexPath.row]
+        cell.textLabel?.text = player.playerName
+        
+        return cell
         
     }
 
+    
 }

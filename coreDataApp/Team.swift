@@ -1,5 +1,5 @@
 //
-//  teams.swift
+//  Team.swift
 //  coreDataApp
 //
 //  Created by Aula11 on 26/11/18.
@@ -8,33 +8,6 @@
 
 import UIKit
 import CoreData
-
-
-/*class Teams: NSObject, NSCoding {
-    
-    var teamName: String
-    var teamPlayers = [String]()
-    
-    init (teamName: String, teamPlayers: [String]){
-
-        self.teamName = teamName
-        self.teamPlayers = teamPlayers
-
-    }
-    
-    func encodeWithCoder(aCoder: NSCoder) {
-        aCoder.encodeObject(teamName, forKey: "teamName")
-        aCoder.encodeObject(teamPlayers, forKey: "teamPlayers")
-    }
-    
-    required convenience init(coder aDecoder: NSCoder){
-        let teamName = aDecoder.decodeObjectForKey("teamName") as! String
-        let teamPlayers = aDecoder.decodeObjectForKey("teamPlayers") as! [String]
-        self.init(teamName: teamName, teamPlayers: teamPlayers)
-    }
-
-}*/
-
 
 public class Team: NSManagedObject {
     

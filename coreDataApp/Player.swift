@@ -9,10 +9,10 @@
 import UIKit
 import CoreData
 
-class Player: NSManagedObject {
+public class Player: NSManagedObject {
 
     @NSManaged var playerName: String
     @NSManaged var playerSurname: String
-    @NSManaged var playerImage: UIImage
+    @NSManaged var playerImage: UIImage?
     @NSManaged var playerTeam: String
 }
