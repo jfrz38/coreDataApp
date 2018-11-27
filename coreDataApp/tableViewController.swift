@@ -48,28 +48,34 @@ class tableViewController: UITableViewController {
     }
     
     func saveItem(itemToSave : String){
-        
+        print("aa")
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         
         let managedContext = appDelegate.managedObjectContext
-        
-        let entity = NSEntityDescription.entityForName("ListTeams", inManagedObjectContext: managedContext)
-        
-        let item = NSManagedObject(entity: entity!, insertIntoManagedObjectContext: managedContext)
+        print("bb")
+        //let entity = NSEntityDescription.entityForName("ListTeams", inManagedObjectContext: managedContext)
+        print("cc")
+        let team = NSEntityDescription.insertNewObjectForEntityForName("ListTeams", inManagedObjectContext: managedContext) as! Teams
+        print("xd")
+        //let item = NSManagedObject(entity: entity!, insertIntoManagedObjectContext: managedContext)
+        print("dd")
         
         /*let team = Teams(teamName: itemToSave, teamPlayers: [String]())
-        item.setValue(team, forKey: "team")
-        */
-        
-        let team = Teams(entity:entity!, insertIntoManagedObjectContext: managedContext)
+        item.setValue(team, forKey: "team")*/
+ 
+        print("ee")
+        //let team = Teams(entity:entity!, insertIntoManagedObjectContext: managedContext)
+        print("ff")
         team.teamName = itemToSave
+        //team.setNombreTeam(itemToSave)
+        print("gg")
         team.teamPlayers = [String]()
-        
+        print("hh")
         
         do{
-            
+            print("ii")
             try managedContext.save()
-            
+            print("jj")
             listTeams.append(team)
             print("Guardado equipo ",team.teamName)
             

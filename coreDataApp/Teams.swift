@@ -9,7 +9,8 @@
 import UIKit
 import CoreData
 
-/*public class Teams: NSObject, NSCoding {
+/*
+class Teams: NSObject, NSCoding {
     
     var teamName: String
     var teamPlayers = [String]()
@@ -21,12 +22,12 @@ import CoreData
 
     }
     
-    public func encodeWithCoder(aCoder: NSCoder) {
+    func encodeWithCoder(aCoder: NSCoder) {
         aCoder.encodeObject(teamName, forKey: "teamName")
         aCoder.encodeObject(teamPlayers, forKey: "teamPlayers")
     }
     
-    required convenience public init?(coder aDecoder: NSCoder){
+    required convenience init(coder aDecoder: NSCoder){
         let teamName = aDecoder.decodeObjectForKey("teamName") as! String
         let teamPlayers = aDecoder.decodeObjectForKey("teamPlayers") as! [String]
         self.init(teamName: teamName, teamPlayers: teamPlayers)
@@ -40,6 +41,18 @@ public class Teams: NSManagedObject {
     
     @NSManaged var teamName: String
     @NSManaged var teamPlayers: [String]
- 
+    
+    func setNombreTeam(tn: String){
+        teamName = tn
+    }
+    
+    func setJugadoresTeam(tp: [String]){
+        teamPlayers = tp
+    }
+    
+    func toString() -> String{
+        return teamName
+    }
+
 }
 
