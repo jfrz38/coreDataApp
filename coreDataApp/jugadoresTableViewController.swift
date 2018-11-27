@@ -27,11 +27,6 @@ class jugadoresTableViewController: UITableViewController, UINavigationControlle
     }
 
     // MARK: - Table view data source
-
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
     
     //Volver a la lista de equipos
     func backTableTeam(){
@@ -123,13 +118,8 @@ class jugadoresTableViewController: UITableViewController, UINavigationControlle
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
-        
-        
-        /*let item = listTeams[indexPath.row] //Valor del item correspondiente a cada celda
-         
-         let team = item.valueForKey("team") as! teams*/
-        
+        let cell = tableView.dequeueReusableCellWithIdentifier("playerCell", forIndexPath: indexPath)
+       
         
         let player = listPlayers[indexPath.row]
         cell.textLabel?.text = player.playerName
@@ -137,10 +127,6 @@ class jugadoresTableViewController: UITableViewController, UINavigationControlle
         return cell
         
     }
-    
-    /*override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        return true;
-    }*/
 
     
 }
