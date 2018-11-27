@@ -11,7 +11,7 @@ import CoreData
 
 class tableViewController: UITableViewController {
 
-    var listTeams = [Teams]() //Lista de equipos a tener
+    var listTeams = [Team]() //Lista de equipos a tener
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,9 +53,9 @@ class tableViewController: UITableViewController {
         
         let managedContext = appDelegate.managedObjectContext
         print("bb")
-        //let entity = NSEntityDescription.entityForName("ListTeams", inManagedObjectContext: managedContext)
+        let entity = NSEntityDescription.entityForName("ListTeams", inManagedObjectContext: managedContext)
         print("cc")
-        let team = NSEntityDescription.insertNewObjectForEntityForName("ListTeams", inManagedObjectContext: managedContext) as! Teams
+        //let team = NSEntityDescription.insertNewObjectForEntityForName("ListTeams", inManagedObjectContext: managedContext) as! Teams
         print("xd")
         //let item = NSManagedObject(entity: entity!, insertIntoManagedObjectContext: managedContext)
         print("dd")
@@ -64,7 +64,7 @@ class tableViewController: UITableViewController {
         item.setValue(team, forKey: "team")*/
  
         print("ee")
-        //let team = Teams(entity:entity!, insertIntoManagedObjectContext: managedContext)
+        let team = coreDataApp.Team(entity:entity!, insertIntoManagedObjectContext: managedContext)
         print("ff")
         team.teamName = itemToSave
         //team.setNombreTeam(itemToSave)
@@ -98,7 +98,7 @@ class tableViewController: UITableViewController {
         
         do{
             let results = try managedContext.executeFetchRequest(fetchRequest)
-            listTeams = results as! [Teams]
+            listTeams = results as! [Team]
             
         }
         catch{

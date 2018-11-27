@@ -9,8 +9,8 @@
 import UIKit
 import CoreData
 
-/*
-class Teams: NSObject, NSCoding {
+
+/*class Teams: NSObject, NSCoding {
     
     var teamName: String
     var teamPlayers = [String]()
@@ -36,23 +36,11 @@ class Teams: NSObject, NSCoding {
 }*/
 
 
-@objc(Teams)
-public class Teams: NSManagedObject {
+public class Team: NSManagedObject {
     
     @NSManaged var teamName: String
-    @NSManaged var teamPlayers: [String]
+    @NSManaged var teamPlayers: [Player]
     
-    func setNombreTeam(tn: String){
-        teamName = tn
-    }
-    
-    func setJugadoresTeam(tp: [String]){
-        teamPlayers = tp
-    }
-    
-    func toString() -> String{
-        return teamName
-    }
 
 }
 

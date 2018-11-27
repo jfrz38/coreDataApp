@@ -1,13 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10174" systemVersion="17G3025" minimumToolsVersion="Automatic">
-    <entity name="ListPlayers" syncable="YES">
-        <attribute name="attribute" optional="YES" attributeType="String" syncable="YES"/>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10174" systemVersion="17G65" minimumToolsVersion="Automatic">
+    <entity name="ListPlayers" representedClassName="coreDataApp.Player" syncable="YES">
+        <attribute name="playerImage" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="playerName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="playerSurname" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="playerTeam" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="playInTeam" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ListTeams" inverseName="hasPlayers" inverseEntity="ListTeams" syncable="YES"/>
     </entity>
-    <entity name="ListTeams" representedClassName="Teams" syncable="YES">
-        <attribute name="team" optional="YES" attributeType="Transformable" syncable="YES"/>
+    <entity name="ListTeams" representedClassName="coreDataApp.Team" syncable="YES">
+        <attribute name="teamName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="teamPlayers" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <relationship name="hasPlayers" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ListPlayers" inverseName="playInTeam" inverseEntity="ListPlayers" syncable="YES"/>
     </entity>
     <elements>
-        <element name="ListPlayers" positionX="-54" positionY="0" width="128" height="60"/>
-        <element name="ListTeams" positionX="-63" positionY="-18" width="128" height="60"/>
+        <element name="ListTeams" positionX="-263" positionY="-0" width="128" height="88"/>
+        <element name="ListPlayers" positionX="-38" positionY="-0" width="128" height="118"/>
     </elements>
 </model>

@@ -14,7 +14,10 @@
 		2908B06421AC47E300C5C4A6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2908B06321AC47E300C5C4A6 /* Assets.xcassets */; };
 		2908B07221AC47E300C5C4A6 /* coreDataAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2908B07121AC47E300C5C4A6 /* coreDataAppTests.swift */; };
 		2908B07D21AC599F00C5C4A6 /* jugadoresTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2908B07C21AC599F00C5C4A6 /* jugadoresTableViewController.swift */; };
-		2908B07F21AC6A0200C5C4A6 /* Teams.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2908B07E21AC6A0200C5C4A6 /* Teams.swift */; };
+		2908B07F21AC6A0200C5C4A6 /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2908B07E21AC6A0200C5C4A6 /* Team.swift */; };
+		2998060921ADB7E100703DCF /* Teams+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 2998060621ADB7E100703DCF /* Teams+CoreDataProperties.m */; };
+		2998060A21ADB7E100703DCF /* Teams.m in Sources */ = {isa = PBXBuildFile; fileRef = 2998060721ADB7E100703DCF /* Teams.m */; };
+		2998060C21ADBB6100703DCF /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2998060B21ADBB6100703DCF /* Player.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,7 +42,13 @@
 		2908B07121AC47E300C5C4A6 /* coreDataAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = coreDataAppTests.swift; sourceTree = "<group>"; };
 		2908B07321AC47E300C5C4A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2908B07C21AC599F00C5C4A6 /* jugadoresTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = jugadoresTableViewController.swift; sourceTree = "<group>"; };
-		2908B07E21AC6A0200C5C4A6 /* Teams.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Teams.swift; sourceTree = "<group>"; };
+		2908B07E21AC6A0200C5C4A6 /* Team.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
+		2998060421ADB7E100703DCF /* coreDataApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "coreDataApp-Bridging-Header.h"; sourceTree = "<group>"; };
+		2998060521ADB7E100703DCF /* Teams.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Teams.h; sourceTree = "<group>"; };
+		2998060621ADB7E100703DCF /* Teams+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Teams+CoreDataProperties.m"; sourceTree = "<group>"; };
+		2998060721ADB7E100703DCF /* Teams.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Teams.m; sourceTree = "<group>"; };
+		2998060821ADB7E100703DCF /* Teams+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Teams+CoreDataProperties.h"; sourceTree = "<group>"; };
+		2998060B21ADBB6100703DCF /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,12 +92,18 @@
 			children = (
 				2908B05921AC47E300C5C4A6 /* AppDelegate.swift */,
 				2908B05B21AC47E300C5C4A6 /* tableViewController.swift */,
-				2908B07E21AC6A0200C5C4A6 /* Teams.swift */,
+				2908B07E21AC6A0200C5C4A6 /* Team.swift */,
+				2998060B21ADBB6100703DCF /* Player.swift */,
 				2908B07C21AC599F00C5C4A6 /* jugadoresTableViewController.swift */,
 				2908B05D21AC47E300C5C4A6 /* Main.storyboard */,
 				2908B06321AC47E300C5C4A6 /* Assets.xcassets */,
 				2908B06821AC47E300C5C4A6 /* Info.plist */,
 				2908B06021AC47E300C5C4A6 /* coreDataApp.xcdatamodeld */,
+				2998060521ADB7E100703DCF /* Teams.h */,
+				2998060621ADB7E100703DCF /* Teams+CoreDataProperties.m */,
+				2998060721ADB7E100703DCF /* Teams.m */,
+				2998060821ADB7E100703DCF /* Teams+CoreDataProperties.h */,
+				2998060421ADB7E100703DCF /* coreDataApp-Bridging-Header.h */,
 			);
 			path = coreDataApp;
 			sourceTree = "<group>";
@@ -202,10 +217,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2908B07F21AC6A0200C5C4A6 /* Teams.swift in Sources */,
+				2998060921ADB7E100703DCF /* Teams+CoreDataProperties.m in Sources */,
+				2908B07F21AC6A0200C5C4A6 /* Team.swift in Sources */,
 				2908B07D21AC599F00C5C4A6 /* jugadoresTableViewController.swift in Sources */,
 				2908B06221AC47E300C5C4A6 /* coreDataApp.xcdatamodeld in Sources */,
+				2998060C21ADBB6100703DCF /* Player.swift in Sources */,
 				2908B05C21AC47E300C5C4A6 /* tableViewController.swift in Sources */,
+				2998060A21ADB7E100703DCF /* Teams.m in Sources */,
 				2908B05A21AC47E300C5C4A6 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -327,10 +345,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = coreDataApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ual.es.coreDataApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "coreDataApp/coreDataApp-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -338,10 +359,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = coreDataApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ual.es.coreDataApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "coreDataApp/coreDataApp-Bridging-Header.h";
 			};
 			name = Release;
 		};
