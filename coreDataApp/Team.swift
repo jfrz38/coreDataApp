@@ -12,6 +12,7 @@ import CoreData
 public class Team: NSManagedObject {
     
     @NSManaged var teamName: String
+    @NSManaged var teamImage: UIImage?
     @NSManaged var teamPlayers: [Player]
     
 

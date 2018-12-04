@@ -26,11 +26,15 @@ class tableViewController: UITableViewController {
         let confirmAction = UIAlertAction(title: "Confirmar", style: UIAlertActionStyle.Default, handler: ({
             (_) in
             
-            if let field = alertController.textFields![0] as? UITextField{
-                
-                self.saveItem(field.text!)
-                self.tableView.reloadData()
+            let textFieldNombre = alertController.textFields![0].text! as String
+            if( textFieldNombre == "" || textFieldNombre == " "){
+                return
             }
+            
+            let img = UIImage(named: "team_image_default")
+            self.saveItem(textFieldNombre, image: img!)
+            self.tableView.reloadData()
+            
         }))
         
         let cancelAction = UIAlertAction(title: "Cancelar", style: UIAlertActionStyle.Cancel, handler: nil)
@@ -41,13 +45,17 @@ class tableViewController: UITableViewController {
             textField.placeholder = "Nombre equipo"
         })
         
+        let imageView = UIImageView(frame: CGRectMake(220,10,40,40))
+        imageView.image = UIImage(named: "team_image_default")
+        alertController.view.addSubview(imageView)
+        
         alertController.addAction(confirmAction)
         alertController.addAction(cancelAction)
     
         self.presentViewController(alertController, animated: true, completion: nil)
     }
     
-    func saveItem(teamToSave : String){
+    func saveItem(teamToSave : String, image: UIImage){
 
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         
@@ -57,6 +65,7 @@ class tableViewController: UITableViewController {
 
         let team = coreDataApp.Team(entity:entity!, insertIntoManagedObjectContext: managedContext)
         team.teamName = teamToSave
+        team.teamImage = image
         team.teamPlayers = [Player]()
         
         do{
@@ -105,10 +114,11 @@ class tableViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! EquipoTableViewCell
         
         let team = listTeams[indexPath.row]
-        cell.textLabel?.text = team.teamName
+        //cell.textLabel?.text = team.teamName
+        cell.lblEquipo?.text = team.teamName
         
         return cell
 
