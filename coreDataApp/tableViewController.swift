@@ -55,14 +55,6 @@ class tableViewController: UITableViewController {
 
         let entity = NSEntityDescription.entityForName("ListTeams", inManagedObjectContext: managedContext)
 
-        //let team = NSEntityDescription.insertNewObjectForEntityForName("ListTeams", inManagedObjectContext: managedContext) as! Teams
-
-        //let item = NSManagedObject(entity: entity!, insertIntoManagedObjectContext: managedContext)
-
-        
-        /*let team = Teams(teamName: itemToSave, teamPlayers: [String]())
-        item.setValue(team, forKey: "team")*/
-
         let team = coreDataApp.Team(entity:entity!, insertIntoManagedObjectContext: managedContext)
         team.teamName = teamToSave
         team.teamPlayers = [Player]()
@@ -70,7 +62,6 @@ class tableViewController: UITableViewController {
         do{
             try managedContext.save()
             listTeams.append(team)
-            print("Guardado equipo ",team.teamName)
             
         }
         catch{
@@ -99,20 +90,6 @@ class tableViewController: UITableViewController {
         }
         
     }
-    
-    /*override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        
-        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        
-        let managedContext = appDelegate.managedObjectContext
-        
-        tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Right)  //Añadir animación al hacer click
-        
-        managedContext.deleteObject(listTeams[indexPath.row]) //Eliminar el objeto de la fila indicada visaulmente
-        listItems.removeAtIndex(indexPath.row)  //Eliminar el valor del objeto listItems
-        self.tableView.reloadData()
- 
-    }*/
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -129,12 +106,6 @@ class tableViewController: UITableViewController {
         
         
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
-        
-        
-        /*let item = listTeams[indexPath.row] //Valor del item correspondiente a cada celda
-         
-         let team = item.valueForKey("team") as! teams*/
-
         
         let team = listTeams[indexPath.row]
         cell.textLabel?.text = team.teamName

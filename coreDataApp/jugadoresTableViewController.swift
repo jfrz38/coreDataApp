@@ -80,7 +80,6 @@ class jugadoresTableViewController: UITableViewController, UINavigationControlle
         do{
             try managedContext.save()
             listPlayers.append(player)
-            print("Guardado jugador ",player.playerName," en el equipo ",team.teamName)
             
         }
         catch{
@@ -101,7 +100,11 @@ class jugadoresTableViewController: UITableViewController, UINavigationControlle
         
         do{
             let results = try managedContext.executeFetchRequest(fetchRequest)
-            listPlayers = results as! [Player]
+            for players in results{
+                if(players.playerTeam! == self.team.teamName){
+                    listPlayers.append(players as! Player)
+                }
+            }
             
         }
         catch{
