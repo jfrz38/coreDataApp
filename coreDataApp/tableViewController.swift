@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class tableViewController: UITableViewController {
+class tableViewController: UITableViewController{
 
     var listTeams = [Team]() //Lista de equipos a tener
     
